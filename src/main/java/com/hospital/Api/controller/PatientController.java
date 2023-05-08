@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/patient")
 public class PatientController {
     @Autowired
-    PatientService patientService;
+    private PatientService patientService;
     @PostMapping
     ResponseEntity<?> addPatient(@RequestBody Patient patient){
         return patientService.addPatient(patient);
@@ -19,15 +19,15 @@ public class PatientController {
     ResponseEntity<?>getPatient(){
         return patientService.getPatient();
     }
-    @PutMapping("/id/{id}")
+    @PutMapping("{id}")
     ResponseEntity<?>updatePatient(@RequestBody Patient patient , @PathVariable long id ){
       return patientService.updatePatient(patient,id);
     }
-    @GetMapping("/id/{id}")
+    @GetMapping("{id}")
     ResponseEntity<?>getPatientById(@PathVariable long id){
         return patientService.getPatientById(id);
     }
-    @DeleteMapping("/id/{id}")
+    @DeleteMapping("{id}")
     ResponseEntity<?>deletePatient(@PathVariable long id){
         return patientService.deletePatient(id);
     }

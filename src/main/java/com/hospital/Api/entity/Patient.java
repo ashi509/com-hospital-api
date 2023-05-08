@@ -17,13 +17,10 @@ import lombok.NoArgsConstructor;
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
-private long patientId;
-private String patientName;
-private String patientCity;
-private String patientEmail;
-private String patientPhoneNumber;
-private String symptoms;
-
-
+    private long id;
+    private String name;
+    private String city;
+    private String email;
+    private String phoneNumber;
+    private String symptom;
 }

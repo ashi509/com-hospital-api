@@ -1,11 +1,9 @@
 package com.hospital.Api.controller;
 
 import com.hospital.Api.entity.Doctor;
-import com.hospital.Api.entity.Patient;
-import com.hospital.Api.services.DoctorServiceImpl;
+import com.hospital.Api.services.DoctorService;
+import com.hospital.Api.services.impl.DoctorServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,12 +11,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/doctor")
 public class DoctorController {
     @Autowired
-    DoctorServiceImpl doctorService;
+    private DoctorService doctorService;
     @PostMapping
     ResponseEntity<?>addDoctor(@RequestBody Doctor doctor){
     return doctorService.addDoctor(doctor);
     }
-    @DeleteMapping("/id/{id}")
+    @DeleteMapping("{id}")
     ResponseEntity<?>removeDoctor(@PathVariable long id){
     return doctorService.removeDoctor(id);
     }
@@ -26,7 +24,7 @@ public class DoctorController {
     ResponseEntity<?>fetchDoctor(){
     return doctorService.fetchDoctor();
     }
-    @GetMapping("/id/{id}")
+    @GetMapping("{id}")
     ResponseEntity<?>fetchByIdDoctor(@PathVariable long id){
     return doctorService.fetchByIdDoctor(id);
     }

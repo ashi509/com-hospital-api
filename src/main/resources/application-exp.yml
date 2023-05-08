@@ -1,7 +1,7 @@
 server:
   port: 9090
   servlet:
-    context-path: /hospital_api
+    context-path: /hospital-api
 
 spring:
   application:
