@@ -3,6 +3,7 @@ package com.hospital.Api.controller;
 import com.hospital.Api.entity.Doctor;
 import com.hospital.Api.services.DoctorService;
 import com.hospital.Api.services.impl.DoctorServiceImpl;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +14,7 @@ public class DoctorController {
     @Autowired
     private DoctorService doctorService;
     @PostMapping
-    ResponseEntity<?>addDoctor(@RequestBody Doctor doctor){
+    ResponseEntity<?>addDoctor(@Valid @RequestBody Doctor doctor){
     return doctorService.addDoctor(doctor);
     }
     @DeleteMapping("{id}")
@@ -29,7 +30,7 @@ public class DoctorController {
     return doctorService.fetchByIdDoctor(id);
     }
     @PutMapping("/{id}")
-    ResponseEntity<?>updateDoctor(@RequestBody Doctor doctor,@PathVariable long id){
+    ResponseEntity<?>updateDoctor(@Valid  @RequestBody Doctor doctor,@PathVariable long id){
     return doctorService.updateDoctor(doctor,id);
     }
 
