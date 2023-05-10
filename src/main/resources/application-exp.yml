@@ -4,6 +4,9 @@ server:
     context-path: /hospital-api
 
 spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
   application:
     name: hospital
   datasource:
@@ -16,8 +19,6 @@ spring:
   jpa:
     properties:
       hibernate:
-        dialect:  org.hibernate.dialect.MySQLDialect
+        dialect:  org.hibernate.dialect.MySQL5Dialect
     hibernate:
       ddl-auto: update
-
-

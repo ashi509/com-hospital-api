@@ -40,10 +40,10 @@ public class PatientServiceImpl implements PatientService {
     public ResponseEntity<?> updatePatient(Patient patient, long id) {
         var patients=patientRepository.findById(id).orElseThrow(()->new GenericException(HttpStatus.NOT_FOUND.value(), "Patient not found with id "+id));
         patient.setId(id);
-       var response= patientRepository.save(patients);
-       if(response==null)
+       patients= patientRepository.save(patient);
+       if(patients==null)
            throw new GenericException(HttpStatus.EXPECTATION_FAILED.value(), "Something went wrong");
-       return ResponseEntity.status(HttpStatus.OK).body(response);
+       return ResponseEntity.status(HttpStatus.OK).body(patients);
     }
 
     @Override

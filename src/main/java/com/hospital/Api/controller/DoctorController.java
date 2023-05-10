@@ -2,11 +2,11 @@ package com.hospital.Api.controller;
 
 import com.hospital.Api.entity.Doctor;
 import com.hospital.Api.services.DoctorService;
-import com.hospital.Api.services.impl.DoctorServiceImpl;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/doctor")
